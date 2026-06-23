@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRSILENT Programming Language - Complete Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF2D2D;
+            --secondary: #1a1a1a;
+            --accent: #00FF88;
+            --bg: #0F0F0F;
+            --text: #FFFFFF;
+            --border: #333333;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF6B6B 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--secondary);
+            padding: 20px;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: var(--secondary);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+        }
+
+        section h2 {
+            color: var(--accent);
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: var(--primary);
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: #000000;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        code {
+            color: var(--accent);
+            font-size: 0.95em;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-box {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border: 2px solid var(--border);
+        }
+
+        .comparison-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .comparison-box.good {
+            border-color: var(--accent);
+        }
+
+        .comparison-box.good h4 {
+            color: var(--accent);
+        }
+
+        /* Feature List */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature {
+            background: #1a1a1a;
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feature strong {
+            color: var(--accent);
+        }
+
+        /* Example Box */
+        .example {
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .example h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: #1a1a1a;
+        }
+
+        /* Highlights */
+        .highlight {
+            background: rgba(255, 45, 45, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--primary);
+        }
+
+        .success {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .error {
+            color: #FF6B6B;
+            font-weight: bold;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #FF6B6B;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 2px solid var(--border);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>🔥 MRSILENT</h1>
+        <p>The Most Compact Programming Language Ever Built</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Created by MR.SILENT (@xenovoidx) | Version 1.0.0</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#syntax">Syntax</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#api">API</a></li>
+            <li><a href="#best-practices">Best Practices</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Overview -->
+        <section id="overview">
+            <h2>📋 Overview</h2>
+            <p>
+                <strong>MRSILENT</strong> is a revolutionary ultra-compact programming language designed to write powerful code in minimum lines.
+            </p>
+            
+            <h3>Why MRSILENT?</h3>
+            <table>
+                <tr>
+                    <th>Language</th>
+                    <th>Lines of Code</th>
+                    <th>Complexity</th>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>10 lines</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>8 lines</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Go</td>
+                    <td>15 lines</td>
+                    <td>Very High</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">MRSILENT</span></td>
+                    <td><span class="success">3-4 lines</span></td>
+                    <td><span class="success">Minimal</span></td>
+                </tr>
+            </table>
+
+            <h3>Key Features</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>✅ <strong>Ultra Compact Syntax</strong> - Write 50% less code</li>
+                <li>✅ <strong>Arrow Functions</strong> - Clean function syntax</li>
+                <li>✅ <strong>Ternary Operators</strong> - Compact conditionals</li>
+                <li>✅ <strong>Method Chaining</strong> - Fluent API design</li>
+                <li>✅ <strong>String Interpolation</strong> - Built-in templating</li>
+                <li>✅ <strong>Smart Type Conversion</strong> - Automatic handling</li>
+                <li>✅ <strong>Built-in APIs</strong> - Telegram, Database, HTTP</li>
+                <li>✅ <strong>Fast Execution</strong> - Compiles to native code</li>
+            </ul>
+        </section>
+
+        <!-- Features -->
+        <section id="features">
+            <h2>✨ Features</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <strong>⚡ Ultra Fast</strong>
+                    <p>Compiles to Python, JavaScript, or Go</p>
+                </div>
+                <div class="feature">
+                    <strong>🎯 Compact</strong>
+                    <p>50% less code than other languages</p>
+                </div>
+                <div class="feature">
+                    <strong>🔧 Flexible</strong>
+                    <p>Works with any platform</p>
+                </div>
+                <div class="feature">
+                    <strong>📚 Easy to Learn</strong>
+                    <p>Similar to Python/JavaScript</p>
+                </div>
+                <div class="feature">
+                    <strong>🤖 Bot Ready</strong>
+                    <p>Perfect for Telegram bots</p>
+                </div>
+                <div class="feature">
+                    <strong>🌐 Web Ready</strong>
+                    <p>Build web APIs easily</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Syntax Guide -->
+        <section id="syntax">
+            <h2>📚 Syntax Guide</h2>
+
+            <h3>1. Variables</h3>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h4>❌ Python (2 lines)</h4>
+                    <pre><code>x = 10
+name = "Sumit"</code></pre>
+                </div>
+                <div class="comparison-box good">
+                    <h4>✅ MRSILENT (1 line)</h4>
+                    <pre><code>x = 10, name = "Sumit"</code></pre>
+                </div>
+            </div>
+
+            <h3>2. Functions</h3>
+            <div class="example">
+                <h4>Arrow Functions (Recommended)</h4>
+                <pre><code>add = (a, b) => a + b
+greet = name => "Hello {name}"</code></pre>
+            </div>
+
+            <h3>3. Conditions</h3>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h4>❌ If-Else (4 lines)</h4>
+                    <pre><code>if x > 5:
+    print("Big")
+else:
+    print("Small")</code></pre>
+                </div>
+                <div class="comparison-box good">
+                    <h4>✅ Ternary (1 line)</h4>
+                    <pre><code>x > 5 ? print("Big") : print("Small")</code></pre>
+                </div>
+            </div>
+
+            <h3>4. Loops</h3>
+            <div class="example">
+                <h4>For Loop</h4>
+                <pre><code>loop(i, 0, 10) {
+    print(i)
+}</code></pre>
+            </div>
+
+            <div class="example">
+                <h4>Array Iteration</h4>
+                <pre><code>[1, 2, 3, 4, 5].each { print($_) }</code></pre>
+            </div>
+
+            <h3>5. Arrays</h3>
+            <div class="example">
+                <pre><code>arr = [1, 2, 3, 4, 5]
+
+arr.map(x => x * 2)          // [2, 4, 6, 8, 10]
+arr.filter(x => x > 2)       // [3, 4, 5]
+arr.reduce((a,b) => a + b)   // 15
+arr.sum()                     // 15</code></pre>
+            </div>
+
+            <h3>6. Objects</h3>
+            <div class="example">
+                <pre><code>user = { name: "Sumit", age: 25, city: "Delhi" }
+
+user.name        // "Sumit"
+user["age"]      // 25
+user.city        // "Delhi"</code></pre>
+            </div>
+
+            <h3>7. Strings</h3>
+            <div class="example">
+                <pre><code>name = "MRSILENT"
+
+"hello".upper()           // HELLO
+"HELLO".lower()           // hello
+"Hello {name}"            // Hello MRSILENT
+"a,b,c".split(",")        // ["a","b","c"]
+"hello world".length      // 11</code></pre>
+            </div>
+        </section>
+
+        <!-- Examples -->
+        <section id="examples">
+            <h2>💡 Examples</h2>
+
+            <h3>Example 1: Calculator</h3>
+            <div class="example">
+                <h4>MRSILENT (5 lines)</h4>
+                <pre><code>add = (a,b) => a + b
+sub = (a,b) => a - b
+mul = (a,b) => a * b
+x, y = 10, 20
+print(add(x,y)), print(sub(x,y)), print(mul(x,y))</code></pre>
+            </div>
+
+            <h3>Example 2: Filter & Map</h3>
+            <div class="example">
+                <h4>MRSILENT (2 lines)</h4>
+                <pre><code>numbers = [1,2,3,4,5,6,7,8,9,10]
+print(numbers.filter(x => x%2==0).map(x => x*x))</code></pre>
+            </div>
+
+            <h3>Example 3: Telegram Bot</h3>
+            <div class="example">
+                <h4>MRSILENT (8 lines)</h4>
+                <pre><code>import "telegram" as tg
+import "database" as db
+
+tg.cmd("start", u => tg.reply(u, "Welcome!"))
+tg.cmd("balance", u => tg.reply(u, "Balance: ₹{db.get(u,'bal')}"))
+tg.cmd("withdraw", (u, amt) => {
+    int(amt) <= db.get(u,'bal') ? (db.save(u,'bal',db.get(u,'bal')-amt), tg.reply(u,"Success!")) : tg.reply(u,"Low!")
+})
+tg.run("YOUR_TOKEN")</code></pre>
+            </div>
+
+            <h3>Example 4: API Request</h3>
+            <div class="example">
+                <h4>MRSILENT (3 lines)</h4>
+                <pre><code>data = http.get("https://api.github.com/users/octocat").json()
+print("Name: {data.name}")
+print("Repos: {data.public_repos}")</code></pre>
+            </div>
+
+            <h3>Example 5: Data Processing</h3>
+            <div class="example">
+                <h4>MRSILENT (5 lines)</h4>
+                <pre><code>data = [{name:"Apple",price:10,qty:5},{name:"Orange",price:15,qty:3}]
+total = data.map(x=>x.price*x.qty).sum()
+expensive = data.filter(x=>x.price>10)
+names = data.map(x=>x.name)
+print("Total:{total}\nExpensive:{expensive}\nNames:{names}")</code></pre>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section id="api">
+            <h2>🔌 API Reference</h2>
+
+            <h3>Console Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>print(value)</code></td>
+                    <td>Print to console</td>
+                    <td><code>print("Hello")</code></td>
+                </tr>
+                <tr>
+                    <td><code>input(prompt)</code></td>
+                    <td>Get user input</td>
+                    <td><code>x = input("Enter: ")</code></td>
+                </tr>
+                <tr>
+                    <td><code>log(msg)</code></td>
+                    <td>Log message</td>
+                    <td><code>log("Info")</code></td>
+                </tr>
+            </table>
+
+            <h3>Array Methods</h3>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>.length</code></td>
+                    <td>Get length</td>
+                    <td><code>[1,2,3].length</code></td>
+                </tr>
+                <tr>
+                    <td><code>.map(fn)</code></td>
+                    <td>Transform items</td>
+                    <td><code>arr.map(x => x*2)</code></td>
+                </tr>
+                <tr>
+                    <td><code>.filter(fn)</code></td>
+                    <td>Filter items</td>
+                    <td><code>arr.filter(x => x>5)</code></td>
+                </tr>
+                <tr>
+                    <td><code>.sum()</code></td>
+                    <td>Sum all items</td>
+                    <td><code>[1,2,3].sum()</code></td>
+                </tr>
+                <tr>
+                    <td><code>.avg()</code></td>
+                    <td>Average value</td>
+                    <td><code>[1,2,3].avg()</code></td>
+                </tr>
+            </table>
+
+            <h3>String Methods</h3>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>.upper()</code></td>
+                    <td>Convert to uppercase</td>
+                </tr>
+                <tr>
+                    <td><code>.lower()</code></td>
+                    <td>Convert to lowercase</td>
+                </tr>
+                <tr>
+                    <td><code>.split(sep)</code></td>
+                    <td>Split string</td>
+                </tr>
+                <tr>
+                    <td><code>.length</code></td>
+                    <td>String length</td>
+                </tr>
+            </table>
+
+            <h3>Telegram API</h3>
+            <div class="example">
+                <pre><code>import "telegram" as tg
+
+tg.cmd(cmd, fn)      // Add command handler
+tg.send(id, text)    // Send message
+tg.reply(id, text)   // Reply to message
+tg.run(token)        // Start bot</code></pre>
+            </div>
+
+            <h3>Database API</h3>
+            <div class="example">
+                <pre><code>import "database" as db
+
+db.save(key, value)  // Save data
+db.get(key)          // Get data
+db.delete(key)       // Delete data
+db.exists(key)       // Check if exists</code></pre>
+            </div>
+
+            <h3>HTTP API</h3>
+            <div class="example">
+                <pre><code>import "http" as http
+
+http.get(url)        // GET request
+http.post(url, data) // POST request
+http.put(url, data)  // PUT request
+http.delete(url)     // DELETE request</code></pre>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices">
+            <h2>🏆 Best Practices</h2>
+
+            <h3>1. Use Arrow Functions</h3>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h4>❌ Bad</h4>
+                    <pre><code>fn multiply(a, b) {
+    return a * b
+}</code></pre>
+                </div>
+                <div class="comparison-box good">
+                    <h4>✅ Good</h4>
+                    <pre><code>multiply = (a, b) => a * b</code></pre>
+                </div>
+            </div>
+
+            <h3>2. Chain Methods</h3>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h4>❌ Bad</h4>
+                    <pre><code>arr = [1,2,3,4,5]
+filtered = arr.filter(x=>x>2)
+mapped = filtered.map(x=>x*2)
+result = mapped.sum()</code></pre>
+                </div>
+                <div class="comparison-box good">
+                    <h4>✅ Good</h4>
+                    <pre><code>result = [1,2,3,4,5].filter(x=>x>2).map(x=>x*2).sum()</code></pre>
+                </div>
+            </div>
+
+            <h3>3. Use Ternary for Simple Conditions</h3>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h4>❌ Bad</h4>
+                    <pre><code>if x > 5 {
+    print("Big")
+} else {
+    print("Small")
+}</code></pre>
+                </div>
+                <div class="comparison-box good">
+                    <h4>✅ Good</h4>
+                    <pre><code>x > 5 ? print("Big") : print("Small")</code></pre>
+                </div>
+            </div>
+
+            <h3>4. Use String Interpolation</h3>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h4>❌ Bad</h4>
+                    <pre><code>msg = "Hello " + name + ", age " + age</code></pre>
+                </div>
+                <div class="comparison-box good">
+                    <h4>✅ Good</h4>
+                    <pre><code>msg = "Hello {name}, age {age}"</code></pre>
+                </div>
+            </div>
+
+            <h3>Additional Tips</h3>
+            <ul style="list-style-position: inside;">
+                <li>Keep functions small and focused</li>
+                <li>Use meaningful variable names</li>
+                <li>Leverage built-in methods</li>
+                <li>Test your code frequently</li>
+                <li>Write clear comments</li>
+            </ul>
+        </section>
+
+        <!-- Installation -->
+        <section>
+            <h2>💻 Installation</h2>
+            
+            <h3>Requirements</h3>
+            <ul style="list-style-position: inside;">
+                <li>Python 3.8+</li>
+                <li>Node.js 14+ (optional)</li>
+                <li>Git</li>
+            </ul>
+
+            <h3>Install from GitHub</h3>
+            <pre><code>git clone https://github.com/mrsilent/mrsilent-language.git
+cd mrsilent-language
+pip install -r requirements.txt</code></pre>
+
+            <h3>Verify Installation</h3>
+            <pre><code>mrsilent --version
+# Output: MRSILENT v1.0.0</code></pre>
+
+            <h3>Your First Program</h3>
+            <p>Create file: <code>hello.mrs</code></p>
+            <pre><code>print("Hello from MRSILENT!")</code></pre>
+
+            <p>Run it:</p>
+            <pre><code>mrsilent hello.mrs
+# Output: Hello from MRSILENT!</code></pre>
+        </section>
+
+        <!-- Support -->
+        <section>
+            <h2>📞 Support & Resources</h2>
+            
+            <p><strong>Official Links:</strong></p>
+            <ul style="list-style-position: inside;">
+                <li>🌐 GitHub: <a href="https://github.com/sharmasumit5141-arch/MR-SILENT" target="_blank">github.com/mrsilent/mrsilent-language</a></li>
+                <li>Telegram ✅: <a href="https://t.mr/xenovoidx" target="_blank">@xenovoidx</a></li>
+                <li>💬 TELEGRAM: <a href="https://t.me/xenovoidx" target="_blank">discord.gg/mrsilent</a></li>
+                <li>📧 Email: mrslanguage@gmail.com</li>
+            </ul>
+
+            <p style="margin-top: 20px;"><strong>Community:</strong></p>
+            <ul style="list-style-position: inside;">
+                <li>Stack Overflow: Tag #mrsilent</li>
+                <li>Reddit: r/mrsilent</li>
+                <li>Telegram: @mrsilent_dev</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h3>🔥 MRSILENT Programming Language</h3>
+        <p>Created by MR.SILENT (@xenovoidx) | Version 1.0.0</p>
+        <p style="margin-top: 15px; opacity: 0.8;">
+            MIT License - Free to use for personal and commercial projects
+        </p>
+        <p style="margin-top: 15px; font-size: 1.2em;">
+            <strong>Write less. Do more. 💯</strong>
+        </p>
+    </footer>
+</body>
+</html>
+           
