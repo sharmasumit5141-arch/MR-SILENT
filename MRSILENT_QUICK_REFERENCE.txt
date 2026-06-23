@@ -1,0 +1,287 @@
+╔════════════════════════════════════════════════════════════════╗
+║         🔥 MRSILENT - QUICK REFERENCE GUIDE 🔥               ║
+║     The Most Compact Programming Language Ever Built          ║
+║                Created by MR.SILENT                            ║
+╚════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VARIABLES & DATA TYPES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Numbers:         x = 42
+Floats:          pi = 3.14
+Strings:         name = "MRSILENT"
+Booleans:        flag = true
+Arrays:          arr = [1, 2, 3, 4]
+Objects:         obj = {name: "Sumit", age: 25}
+Multiple:        x, y, z = 10, 20, 30
+Null:            empty = null
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FUNCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+One-liner:       add = (a, b) => a + b
+Single arg:      square = x => x * x
+No args:         greet = () => "Hello"
+Multi-line:      fn calc(a, b) {
+                     c = a + b
+                     return c * 2
+                 }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONDITIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ternary:         x > 5 ? "Yes" : "No"
+If-Else:         if x > 5 { print("Big") } else { print("Small") }
+Switch:          switch x { 1 -> "One", 2 -> "Two", _ -> "Other" }
+AND:             x > 5 && y < 10
+OR:              x > 5 || y < 10
+NOT:             !flag
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LOOPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For Loop:        loop(i, 0, 10) { print(i) }
+While Loop:      while x > 0 { x-- }
+Array Each:      [1,2,3].each { print($_) }
+Array Map:       arr.map(x => x * 2)
+Array Filter:    arr.filter(x => x > 5)
+Array Reduce:    arr.reduce((a,b) => a + b)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARRAY METHODS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+arr.length                  # Get length
+arr.push(item)              # Add item
+arr.pop()                   # Remove last
+arr.shift()                 # Remove first
+arr.unshift(item)           # Add first
+arr.map(x => x*2)           # Transform
+arr.filter(x => x>5)        # Filter
+arr.reduce((a,b)=>a+b)      # Reduce
+arr.sum()                   # Sum all
+arr.avg()                   # Average
+arr.sort()                  # Sort
+arr.reverse()               # Reverse
+arr.join(",")               # Join to string
+arr.slice(0, 3)             # Get slice
+arr.includes(5)             # Check if contains
+arr.find(x => x>5)          # Find first match
+arr.findIndex(x => x>5)     # Find index
+arr.every(x => x>0)         # All match?
+arr.some(x => x>10)         # Any match?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRING METHODS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+str.length                  # String length
+str.upper()                 # Uppercase
+str.lower()                 # Lowercase
+str.split(",")              # Split to array
+str.split("")               # Split to chars
+str.replace("a", "b")       # Replace
+str.substring(0, 5)         # Extract part
+str.includes("text")        # Contains?
+str.startsWith("Mr")        # Starts with?
+str.endsWith("ent")         # Ends with?
+str.trim()                  # Remove spaces
+str.charAt(0)               # Get char at index
+str.charCodeAt(0)           # Get char code
+str.indexOf("text")         # Find index
+str.lastIndexOf("text")     # Find last index
+str.repeat(3)               # Repeat string
+str.padStart(10, "*")       # Pad start
+str.padEnd(10, "*")         # Pad end
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRING INTERPOLATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name = "Sumit"
+msg = "Hello {name}"                    # Hello Sumit
+msg = "Math: {2 + 3}"                   # Math: 5
+msg = "Func: {add(2, 3)}"               # Func: 5
+msg = "Multiline\nString"               # Newline
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OBJECTS & PROPERTIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+user = {name: "Sumit", age: 25}
+user.name                               # "Sumit"
+user["age"]                              # 25
+user.keys()                              # ["name", "age"]
+user.values()                            # ["Sumit", 25]
+user.entries()                           # [["name","Sumit"], ["age",25]]
+user.hasKey("name")                      # true
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TYPE CONVERSION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"10".toInt()                             # 10
+"3.14".toFloat()                         # 3.14
+25.toString()                            # "25"
+true.toString()                          # "true"
+typeof(value)                            # Get type
+isNumber(value)                          # Is number?
+isString(value)                          # Is string?
+isArray(value)                           # Is array?
+isObject(value)                          # Is object?
+isNull(value)                            # Is null?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MATH OPERATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+a + b                                    # Addition
+a - b                                    # Subtraction
+a * b                                    # Multiplication
+a / b                                    # Division
+a % b                                    # Modulo
+a ** b                                   # Power
+a++                                      # Increment
+a--                                      # Decrement
+Math.abs(x)                              # Absolute value
+Math.round(x)                            # Round
+Math.floor(x)                            # Floor
+Math.ceil(x)                             # Ceiling
+Math.sqrt(x)                             # Square root
+Math.pow(x, y)                           # Power
+Math.max(a, b)                           # Maximum
+Math.min(a, b)                           # Minimum
+Math.random()                            # Random 0-1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONSOLE FUNCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+print(value)                             # Print to console
+input(prompt)                            # Get user input
+log(msg)                                 # Log message
+error(msg)                               # Log error
+warn(msg)                                # Log warning
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MODULES & IMPORTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+import "telegram" as tg                  # Import Telegram
+import "database" as db                  # Import Database
+import "http" as http                    # Import HTTP
+import "math" as m                       # Import Math
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TELEGRAM BOT FUNCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+import "telegram" as tg
+
+tg.cmd("start", u => tg.reply(u, "Hello!"))
+tg.cmd("balance", u => tg.reply(u, "Balance: ₹100"))
+tg.msg(u => tg.reply(u, "Echo: " + message))
+tg.send(user_id, "Hello!")
+tg.reply(user_id, "Response")
+tg.sendPhoto(user_id, "image_url")
+tg.sendVideo(user_id, "video_url")
+tg.sendFile(user_id, "file_path")
+tg.deleteMessage(user_id, message_id)
+tg.editMessage(user_id, message_id, "New text")
+tg.run("YOUR_BOT_TOKEN")
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATABASE FUNCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+import "database" as db
+
+db.save("key", "value")                 # Save data
+db.get("key")                           # Get data
+db.delete("key")                        # Delete data
+db.exists("key")                        # Check if exists
+db.getAll()                             # Get all data
+db.clear()                              # Clear database
+db.getAllKeys()                         # Get all keys
+db.count()                              # Count records
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HTTP FUNCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+import "http" as http
+
+http.get("url")                         # GET request
+http.post("url", {data})                # POST request
+http.put("url", {data})                 # PUT request
+http.patch("url", {data})               # PATCH request
+http.delete("url")                      # DELETE request
+http.json()                             # Parse JSON
+http.text()                             # Get text
+http.headers()                          # Get headers
+http.status()                           # Get status code
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPERATORS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Arithmetic:      + - * / % **
+Comparison:      == != > < >= <=
+Logical:         && || !
+Assignment:      = += -= *= /= %=
+Increment:       ++ --
+Ternary:         condition ? true_val : false_val
+Nullish:         value ?? default
+Spread:          ...array
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPARISON TABLE: OTHERS vs MRSILENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TASK                | OTHERS (lines) | MRSILENT (lines)
+────────────────────┼────────────────┼─────────────────
+Add function        | 3              | 1
+Filter array        | 3              | 1
+If-Else             | 4              | 1
+Loop                | 3              | 1
+API call            | 4              | 1
+Telegram bot        | 30             | 8
+Total average       | 10             | 3-4
+
+AVERAGE REDUCTION: 50-70% ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BEST PRACTICES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Use arrow functions for short functions
+✅ Chain methods for data processing
+✅ Use ternary for simple conditions
+✅ Use string interpolation
+✅ Keep functions small and focused
+✅ Use meaningful variable names
+✅ Leverage built-in methods
+✅ Test your code frequently
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESOURCES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 Documentation:  https://mrsilent.dev/docs
+🐙 GitHub:         https://github.com/mrsilent/mrsilent-language
+🐦 Twitter:        @xenovoidx
+💬 Discord:        discord.gg/mrsilent
+📧 Email:          support@mrsilent.dev
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 Write less. Do more. 💯
+
+Created by MR.SILENT (@xenovoidx)
+Version 1.0.0 | MIT License
+
+
